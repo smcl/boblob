@@ -18,7 +18,9 @@ class OrderBook(object):
         return -1
 
     def match(self, order, order_idx):
-        limit_order = self.book[instrument_code][order_idx]
+        limit_order = self.book[order.instrument_code][order_idx]
+        print(order.quantity)
+        print(limit_order.quantity)
         limit_order.quantity -= order.quantity
         if limit_order.quantity == 0:
             del(self.book[order.instrument_code][order_idx])
@@ -27,7 +29,7 @@ class OrderBook(object):
         if order.instrument_code in self.book.keys():
             order_idx = self.try_match(order)
             if order_idx > 0:
-                match(order, order_idx)
+                self.match(order, order_idx)
                 return True
             elif order.price:
                 self.book[order.instrument_code].append(order)

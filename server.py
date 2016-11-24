@@ -19,7 +19,7 @@ def index():
 @app.route("/buy/<quantity>/<instrumentCode>/<price>")
 @app.route("/buy/<quantity>/<instrumentCode>")
 def buy(quantity, instrumentCode, price=None):
-    order = Order("buy", quantity, instrumentCode, price)
+    order = Order("buy", int(quantity), instrumentCode, price)
     if (price):
         print("LIMIT BUY %s %s @ %s" % (quantity, instrumentCode, price))
     else:
@@ -31,7 +31,7 @@ def buy(quantity, instrumentCode, price=None):
 @app.route("/sell/<quantity>/<instrumentCode>/<price>")
 @app.route("/sell/<quantity>/<instrumentCode>")
 def sell(quantity, instrumentCode, price=None):
-    order = Order("buy", quantity, instrumentCode, price)
+    order = Order("buy", int(quantity), instrumentCode, price)
     if (price):
         print("LIMIT SELL %s %s @ %s" % (quantity, instrumentCode, price))
     else:

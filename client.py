@@ -8,7 +8,7 @@ max_quantity = 100
 max_price = 10
 
 number_of_children = 40
-number_of_orders = 1000
+number_of_orders = 10
 number_of_instruments = 5
 
 def random_char():
